@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>Send a message</title>
+        <link href="../Resources/Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
+        <link href="../Resources/Stylesheets/APITable.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Send a message</h1>
+        <p>This endpoint allows you to send messages to a DebuggerDuck.</p>
+        <h2>Endpoint</h2>
+        <p><code class="language-clike">POST https://debuggerduck.api.com/messages</code>
+        </p>
+        <h3>Request parameters</h3>
+        <p>The body of the HTTP request is a JSON. All values are required.</p>
+        <table style="margin-left: 0; margin-right: auto; width: 100%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Key</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Value type</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>sender_id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The user ID for this user. Required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>message</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>Contains the user's message. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Sample request</h3>
+        <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
+curl -X POST -H "Content-Type: application/json" -d '{
+"sender_id": "id",<br />"message":"hello, duck!"
+}' "https://debuggerduck.api.com/messages?access_token={your access token}"
+</code></pre>
+        </p>
+        <h2>Response parameters</h2>
+        <p><a href="response-codes.htm" class="BracketLink">See the Response codes<span class="autonumber"><span>&#160;&gt;</span></span></a>
+        </p>
+    </body>
+</html>

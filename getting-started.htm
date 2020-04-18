@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>Getting started</title>
+        <link href="../Resources/Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>Getting started</h1>
+        <p>Create simple apps to communicate with your DebuggerDuck. Here's what you need to get started.</p>
+        <h2>Register your app with FullStacks, Inc.</h2>
+        <ul>
+            <li value="1">To register your app, fill out the form at <a href="https://debuggerduck.com/developers/register.htm">debuggerduck.com/developers</a></li>
+        </ul>
+        <h2>Prepare your environment</h2>
+        <ol>
+            <li value="1">Set up the server and software platform of your choice.</li>
+            <li value="2">Test your development environment.</li>
+        </ol>
+        <h2>Get an access token</h2>
+        <ol>
+            <li value="1">From our website, download <a href="https://debuggerduck.com/developers/duckman.htm">Duckman</a> and install it.</li>
+            <li value="2">In Duckman, make the following request:<br /><pre><code class="language-clike">POST https://debuggerduck.api.com/oauth2/token</code></pre></li>
+            <li value="3">On the <span class="ui">Authorization</span> tab, select <span class="ui">Basic</span>.<ol style="list-style-type: lower-alpha;"><li value="1">In <span class="ui">User ID</span>, enter your user ID.</li><li value="2">In <span class="ui">Password</span>, enter your secret.</li></ol></li>
+            <li value="4">Select <span class="ui">Send</span>.<br />You receive your access token from the Duckman server:<br /><pre xml:space="preserve"><code class="language-clike">{
+"scope": "scope",
+"access_token": "your-token",
+"token_type": "bearer",
+"app_id": "ABC-123456",
+"expiry": 12345,
+}</code></pre></li>
+            <li value="5">In the <code>Authorization</code> header of your requests, include the following:<pre><code class="language-clike">"Authorization: bearer your-token"</code></pre></li>
+        </ol>
+        <h2>Make requests to the API endpoints</h2>
+        <p><a href="endpoints.htm" class="BracketLink">For more information about available API endpoints, see the API endpoint reference<span class="autonumber"><span>&#160;&gt;</span></span></a>
+        </p>
+    </body>
+</html>
