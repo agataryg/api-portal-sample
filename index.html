@@ -5,6 +5,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<<<<<<< Updated upstream
         <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>DuckAPI documentation</title>
         <link href="../Resources/Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
     </head>
@@ -15,6 +16,551 @@
         </p>
         <p>
             <img src="../Resources/Images/Assets/API/ilya-pavlov-OqtafYT5kTw-unsplash.jpg" title="Photo by Ilya Pavlov on Unsplash" alt="Laptop screen displaying PHP code" style="max-width: 80%;" />
+=======
+        <title>DuckAPI documentation</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <link href="Resources/Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/Stylesheets/ARStyles.css" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="samplemenu.js"></script>
+      
+    </head>
+
+    <script>
+
+
+function createAll( topics ) {
+  var items = [];
+  for (var topicId in topics) {
+    var topic = topics[topicId];
+    console.log(topic);
+    var hasChildren = Array.isArray(topic.children);
+    var submenu = '';
+    var decorated ='';
+    if (hasChildren === true) {
+        submenu = createAll(topic.children);
+        decorated ="<span class='subtopic'>"+submenu+"</span>";
+    } 
+    if (hasChildren === true){
+    items.push( "<li  class='pure-menu-item pure-menu-link clickable' id='" + topic.path + "'>" + topic.title + decorated +" >> </li>" );
+    } else {
+        items.push( "<li  class='pure-menu-item pure-menu-link' id='" + topic.path + "'>" + topic.title + decorated +"</li>" );
+    }
+
+  };
+  
+  return `<ul class="pure-menu-list">${ items.join("") }</ul>`;
+
+ 
+}
+
+
+
+
+
+
+</script>
+
+
+
+<body>
+       
+
+
+<div class = "pure-g main-content">
+    <div id="menuContainer" class="pure-menu pure-u-1 pure-u-md-1-5"></div>
+    <script type="text/javascript">
+        var htmlMenu = createAll(menuitems.topics);
+        document.getElementById('menuContainer').innerHTML = htmlMenu;
+        console.log('hejehhejeh');
+    </script>    
+
+        <div class="pure-u-1 pure-u-md-4-5">
+        <h1 id="start">DuckAPI documentation</h1>
+        <p>Build your own apps and interfaces to communicate with your DebuggerDuck!</p>
+        <p>
+
+        <h1 id="endpoints">API endpoint reference</h1>
+        <h2>Users</h2>
+        <ul>
+            <li value="1"><a href="#user">Get a user's profile</a>
+            </li>
+        </ul>
+        <h2>Messages</h2>
+        <ul>
+            <li value="1"><a href="#msg">Send a message</a>
+            </li>
+            <li value="2"><a href="#reply">Get a reply from a DebuggerDuck</a>
+            </li>
+        </ul>
+
+
+        <h2 id="user">Get a user's profile</h2>
+        <p>This endpoint allows you to retrieve information about a user's profile.</p>
+        <h3>Endpoint</h2>
+        <p><code class="language-clike">GET https://debuggerduck.api.com/users/{user_id}</code>
         </p>
+        <h3>Request parameters</h3>
+        <h4>Header fields</h4>
+        <table style="margin-left: 0; margin-right: auto; width: 75%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" style="width: 148px;" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Header field</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>Authorization</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>A valid access token. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Path parameters</h4>
+        <table style="margin-left: 0; margin-right: auto; width: 75%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" style="width: 148px;" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Path parameter</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>user_id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>The user's ID. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Sample request</h4>
+        <table style="width: 75%; margin-left: 0; margin-right: auto;">
+            <col />
+            <tbody>
+                <tr>
+                    <td><pre style="font-size:0.9em;"><code class="language-clike">curl -X GET "https://debuggerduck.api.com/users/{user_id}" 
+-H "Authorization: Bearer {your access token}"</code></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Response parameters</h3>
+        <p>See the <a href="response-codes.htm">Response codes</a> and the <a href="#sample_uj">sample User object</a> below.</p>
+        <h3>User object</h3>
+        <table style="margin-left: 0; margin-right: auto; width: 100%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Key</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Value type</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>name</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The user's name displayed on their profile.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The user ID for this user.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>href</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The Web API endpoint link for this user.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>img</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>image object</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>The user's profile image.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3><a name="sample_uj"></a>Sample User object</h3>
+        <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
+{
+"name" : "Anthon Anthony",
+"href" : "https://debuggerduck.api.com/users/anthon11",
+"id" : "anthon11",
+"images" : [ {
+   "height" : null,
+   "url" : "http://debuggerduck.com/profileimages/anthon11/img.png",
+   "width" : null
+} ]
+}
+</code></pre>
+        </p>
+  
+        <h2 id="msg">Send a message</h2>
+        <p>This endpoint allows you to send messages to a DebuggerDuck.</p>
+        <h3>Endpoint</h3>
+        <p><code class="language-clike">POST https://debuggerduck.api.com/messages</code>
+        </p>
+        <h4>Request parameters</h4>
+        <p>The body of the HTTP request is a JSON. All values are required.</p>
+        <table style="margin-left: 0; margin-right: auto; width: 100%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Key</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Value type</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>sender_id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The user ID for this user. Required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>message</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>string</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>Contains the user's message. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Sample request</h4>
+        <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
+curl -X POST -H "Content-Type: application/json" -d '{
+"sender_id": "id",<br />"message":"hello, duck!"
+}' "https://debuggerduck.api.com/messages?access_token={your access token}"
+</code></pre>
+        </p>
+        <h3>Response parameters</h3>
+        <p><a href="response-codes.htm" class="BracketLink">See the Response codes<span class="autonumber"><span>&#160;&gt;</span></span></a>
+>>>>>>> Stashed changes
+        </p>
+
+        <h2 id="reply">Get a reply from a DebuggerDuck</h2>
+        <p>This endpoint allows you to retrieve replies from a DebuggerDuck by their IDs.</p>
+        <h3>Endpoint</h3>
+        <p><code class="language-clike">GET https://debuggerduck.api.com/messages/{user_id}/received/{id}</code>
+        </p>
+        <h3>Request parameters</h3>
+        <h4>Header fields</h4>
+        <table style="margin-left: 0; margin-right: auto; width: 75%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" style="width: 148px;" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Header field</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>Authorization</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>A valid access token. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Path parameters</h4>
+        <table style="margin-left: 0; margin-right: auto; width: 75%;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" style="width: 148px;" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Path parameter</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>user_id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The user's user ID. Required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>id</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>The ID of the message. Required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Sample request</h4><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">curl -X GET "https://debuggerduck.api.com/messages/{user_id}/received{id}" 
+-H "Authorization: Bearer {your access token}"</code></pre>
+        <h3>Response parameters</h3>
+        <p>See the <a href="response-codes.htm">Response codes</a> and the sample Reply object below.</p>
+        <h3>Response object</h3>
+        <table style="width: 100%; margin-left: 0; margin-right: auto;" class="TableStyle-APITable" cellspacing="3">
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <col class="TableStyle-APITable-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-APITable-Head-Header1">
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Key</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadE-Column1-Header1">
+                        <p>Value type</p>
+                    </th>
+                    <th class="TableStyle-APITable-HeadD-Column1-Header1">
+                        <p>Value description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>date</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyE-Column1-Body1">
+                        <p>long</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyD-Column1-Body1">
+                        <p>The message creation timestamp, used to order the incoming replies.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-APITable-Body-Body1">
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>blinked</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyB-Column1-Body1">
+                        <p>boolean</p>
+                    </td>
+                    <td class="TableStyle-APITable-BodyA-Column1-Body1">
+                        <p>Information about the DebuggerDuck's reaction to a message.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Sample Response object</h4>
+        <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
+{
+"date" : "1472799302",
+"blinked" : true
+}
+</code></pre>
+        </p>
+
+        
+        <h2 id="codes">Response codes and statuses</h2>
+        <h3>The HTTP Status Codes used by the DuckAPI</h3>
+        <p>&#160;</p>
+        <table class="TableStyle-TableRows" style="border-collapse: collapse; margin-left: auto; margin-right: auto; width: 75%;" cellspacing="0">
+            <col class="TableStyle-TableRows-Column-Column1" style="width: 223px;" />
+            <col class="TableStyle-TableRows-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-TableRows-Head-Header1">
+                    <th class="TableStyle-TableRows-HeadE-Column1-Header1">
+                        <p>HTTP status code</p>
+                    </th>
+                    <th class="TableStyle-TableRows-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-TableRows-Body-Body1">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body1">
+                        <p><strong>200 OK</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body1">
+                        <p>The request was successfully completed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body2">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body2">
+                        <p><strong>201 Created</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body2">
+                        <p>A new resource was created.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body1">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body1">
+                        <p><strong>400 Bad request</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body1">
+                        <p>The request syntax was invalid</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body2">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body2">
+                        <p><strong>401 Unauthorized</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body2">
+                        <p>The request did not include an authentication token or the authentication token was expired.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body1">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body1">
+                        <p><strong>403 Forbidden</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body1">
+                        <p>The client did not have permission to access the requested resource.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body2">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body2">
+                        <p><span class="ui">404 Not found</span>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body2">
+                        <p>The requested resource was not found.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body1">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body1">
+                        <p><span class="ui">405 Method not allowed</span>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body1">
+                        <p>The request method is known by the server but it was disabled and cannot be used.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body2">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body2">
+                        <p><strong>409 Conflict</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body2">
+                        <p>This response is sent when a request conflicts with the current state of the server.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body1">
+                    <td class="TableStyle-TableRows-BodyE-Column1-Body1">
+                        <p><strong>500 Internal server error</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyD-Column1-Body1">
+                        <p>The request was not completed due to an internal error on the server side.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableRows-Body-Body2">
+                    <td class="TableStyle-TableRows-BodyB-Column1-Body2">
+                        <p><strong>503 Service unavailable</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-TableRows-BodyA-Column1-Body2">
+                        <p>The server was unavailable.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
     </body>
+    <script>
+
+function dropDowner() {
+    
+    var acc = document.getElementsByClassName("clickable");
+    var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    
+    /* Toggle between hiding and showing the active panel */
+    var subtopic = this.nextElementSibling;
+    if (subtopic.style.display === "block") {
+        subtopic.style.display = "none";
+    } else {
+        subtopic.style.display = "block";
+    }
+  });
+}
+
+}
+
+    </script>
 </html>
