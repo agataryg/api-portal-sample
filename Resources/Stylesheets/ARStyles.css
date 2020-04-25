@@ -6,7 +6,201 @@
 
 
 .subtopic {
-    display: none;
+   display: none;
     
 }
 
+.active {
+    color: red;
+    
+}
+
+
+
+.clickable::after {
+
+    content: "\f078";
+    font-family:FontAwesome;
+    float: right;
+}
+
+
+.pad {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+/* Scrollbar Styling */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #e2e2e2;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #8b8b8b; 
+}
+
+
+/*imported from madcap*/
+
+
+@import url('../scripts/prism.css');
+
+body
+{
+	color: #404040;
+	font-family: Arial, Avenir, Myriad;
+	line-height: 1.7em;
+	mc-hyphenate: never;
+}
+
+h1
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	margin-top: 30px;
+	border-bottom: 1px solid #d3d3d3;
+	line-height: 1em;
+}
+
+h2
+{
+	font-size: 1.2em;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 25px;
+	line-height: 1em;
+}
+
+h3
+{
+	font-size: 1.1em;
+	font-weight: 600;
+	margin-bottom: 8px;
+	margin-top: 16px;
+	line-height: 1em;
+}
+
+h4
+{
+	line-height: 1em;
+}
+
+li
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+p
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+img	/*Setting max-width: 100%; property makes images always fit the width of the container*/
+{
+	max-width: 100%;
+}
+
+table {
+    font-size: 0.9em;
+}
+
+td th {
+    padding: 0.3em;
+}
+
+div.notice
+{
+	background-color: #f0f7fb;
+	background-position: 9px 0px;
+	background-repeat: no-repeat;
+	line-height: 18px;
+	padding-left: 1.40cm;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-left-style: solid;
+	border-left-width: 0.1cm;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	page-break-inside: avoid;
+	border-left-color: transparent;
+	border-radius: 7px;
+}
+
+div.caution
+{
+	background-position: 12px 10px;
+	background-repeat: no-repeat;
+	line-height: 18px;
+	padding-left: 1.40cm;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-left-style: solid;
+	border-left-width: 0.1cm;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	page-break-inside: avoid;
+	background-color: #ffef9b;
+	border-left-color: transparent;
+	border-radius: 7px;
+	background-image: url('../Images/icons/icon_caution.eps');
+}
+
+
+a.BracketLink
+{
+	font-weight: 700;
+	color: #333333;
+	text-decoration: none;
+}
+
+p.BracketLink
+{
+	font-weight: 700;
+	color: #333333;
+	text-decoration: none;
+}
+
+
+p.Feedback
+{
+	font-weight: 600;
+	color: #30356b;
+	text-decoration: none;
+}
+
+span.ui
+{
+	font-weight: 700;
+}
+
+p.big-para
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+p.procedureIntro
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+	font-weight: bold;
+}
