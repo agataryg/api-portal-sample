@@ -11,24 +11,28 @@
 }
 
 .active {
-    color: red;
+	color: rgb(19, 124, 194);
+	font-weight: bold;
     
 }
 
 
-
-.clickable::after {
+.chevron-down::after {
 
     content: "\f078";
     font-family:FontAwesome;
     float: right;
 }
 
+.chevron-up::after {
 
-.pad {
-    padding-left: 2em;
-    padding-right: 2em;
+    content: "\f077";
+    font-family:FontAwesome;
+    float: right;
 }
+
+
+
 
 /* Scrollbar Styling */
 
