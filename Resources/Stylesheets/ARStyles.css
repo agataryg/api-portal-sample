@@ -1,9 +1,16 @@
 
 #menuContainer {
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
+.no-bullets {
+	list-style-type: none;
+	color: rgb(97, 97, 97);
+}
 
+li.hovered:hover {
+	color: black;
+}
 
 .subtopic {
    display: none;

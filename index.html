@@ -34,16 +34,16 @@ function createAll( topics, topicPrefix = 'item') {
         if (hasChildren === true) {
             submenu = createAll(topic.children, topicId);
             decorated ="<div id='" +topicId+ "' class='subtopic'>"+submenu+"</div>";
-            items.push( "<li id='" + topic.path + "'>" + "<div class='chevron-down clickable' data-path='"+topicId+"'>" + topic.title + "</div>" + decorated +" </li>" );
+            items.push( "<li class='hovered' id='" + topic.path + "'>" + "<div class='chevron-down clickable' data-path='"+topicId+"'>" + topic.title + "</div>" + decorated +" </li>" );
             
         } else {
-            items.push( "<li data-path='"+topicId+"' id='" + topic.path + "'>" + topic.title + decorated +"</li>" );
+            items.push( "<li class='hovered' data-path='"+topicId+"' id='" + topic.path + "'>" + "<div class='clickable' data-path='"+topicId+"'>" + topic.title + "</div>"+ decorated +"</li>" );
 
         }
 
   };
   
-  return `<ul>${ items.join("") }</ul>`;
+  return `<ul class="no-bullets">${ items.join("") }</ul>`;
 
  
 }
@@ -538,6 +538,12 @@ function dropDowner(event) {
     elemId = (event.target.dataset.path);
     if (elemId == null) return false;
 
+    var oldActive = document.querySelectorAll('.active');
+    oldActive.forEach(function(elem){ 
+        elem.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
     var togglable = document.getElementById(elemId);
     if (togglable == null) return false;
  
@@ -545,7 +551,6 @@ function dropDowner(event) {
         togglable.classList.remove('subtopic');
         event.target.classList.remove('chevron-down');
         event.target.classList.add('chevron-up');
-        event.target.classList.add('active');
     } else {
         togglable.classList.add('subtopic');
         event.target.classList.remove('chevron-up');
@@ -556,6 +561,7 @@ function dropDowner(event) {
 }
 for(i = 0; i < list.length; i++ ){
     list[i].addEventListener('click', dropDowner);
+
 }
 
 
