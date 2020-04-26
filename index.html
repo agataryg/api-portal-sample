@@ -20,23 +20,26 @@
     <script>
 
 
-function createAll( topics ) {
-  var items = [];
-  for (var topicId in topics) {
-    var topic = topics[topicId];
-    console.log(topic);
-    var hasChildren = Array.isArray(topic.children);
-    var submenu = '';
-    var decorated ='';
-    if (hasChildren === true) {
-        submenu = createAll(topic.children);
-        decorated ="<div class='subtopic'>"+submenu+"</div>";
-    } 
-    if (hasChildren === true){
-        items.push( "<li class='pure-menu-item pure-menu-link clickable' data-path='"+topic.path+"' id='" + topic.path + "'>" + topic.title + decorated +" </li>" );
-    } else {
-        items.push( "<li class='pure-menu-item pure-menu-link' data-path='"+topic.path+"' id='" + topic.path + "'>" + topic.title + decorated +"</li>" );
-    }
+function createAll( topics, topicPrefix = 'item') {
+    var items = [];
+    var iterCounter = 0;
+    for (var i in topics) {
+        var topic = topics[i];
+        console.log(topic);
+        var hasChildren = Array.isArray(topic.children);
+        var submenu = '';
+        var decorated ='';
+        iterCounter +=1;
+        var topicId = topicPrefix.concat("-", iterCounter.toString());
+        if (hasChildren === true) {
+            submenu = createAll(topic.children, topicId);
+            decorated ="<div class='subtopic'>"+submenu+"</div>";
+            items.push( "<li class='pure-menu-item pure-menu-link clickable' data-path='"+topicId+"' id='" + topic.path + "'>" + topic.title + decorated +" </li>" );
+            
+        } else {
+            items.push( "<li class='pure-menu-item pure-menu-link' data-path='"+topicId+"' id='" + topic.path + "'>" + topic.title + decorated +"</li>" );
+
+        }
 
   };
   
@@ -530,16 +533,29 @@ curl -X POST -H "Content-Type: application/json" -d '{
     </body>
     <script>
 
-const list = document.querySelectorAll('.clickable');
+var list = document.querySelectorAll('.clickable');
 
-function dropDowner() {
-    
-    
-    if(this.classList.contains('clickable')){
-        console.log(this.dataset.path);
-        this.classList.add('active');
+function dropDowner(event) {
+    event.stopPropagation();
+    elemId = (event.target.dataset.path);
+    console.log(elemId);
+    var parentNode = document.querySelector("[data-path='"+elemId.toString()+"']");
+    console.log(parentNode.children[0]);
+    var togglable = parentNode.children[0]; 
+    if (togglable.classList.contains('subtopic')){
+        togglable.classList.remove('subtopic');
+    }
+    else {
+        togglable.classList.add('subtopic');
     }
 
+    
+
+    /*show.forEach(function (item){
+       item.classList.remove('subtopic');
+    });*/
+    
+  
 
 
 }
