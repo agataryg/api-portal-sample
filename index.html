@@ -48,11 +48,6 @@ function createAll( topics, topicPrefix = 'item') {
  
 }
 
-
-
-
-
-
 </script>
 
 
@@ -60,10 +55,12 @@ function createAll( topics, topicPrefix = 'item') {
 <body>
        
 <script src="Resources/prism/prism.js"></script>
-
-
     
-    <div id="menuContainer"></div>
+
+<h1 class="mainh">the Damn Useless Page Assembler project</h1>
+    <div class="container">
+    
+    <div id="menuContainer" class=" grid-item-1"></div>
 
     <script type="text/javascript">
         var htmlMenu = createAll(menuitems.topics);
@@ -71,7 +68,7 @@ function createAll( topics, topicPrefix = 'item') {
         console.log('hejehhejeh');
     </script>    
 
-        
+<div class="grid-item-2">  
         
         <h1 id="start">DuckAPI documentation</h1>
         <p>Build your own apps and interfaces to communicate with your DebuggerDuck!</p>
@@ -90,8 +87,8 @@ function createAll( topics, topicPrefix = 'item') {
             <li value="2"><a href="#reply">Get a reply from a DebuggerDuck</a>
             </li>
         </ul>
-
-        
+        <div class="minicontainer">
+        <div class="grid-inner-1">
         <h2 id="user">Get a user's profile</h2>
         <p>This endpoint allows you to retrieve information about a user's profile.</p>
         <h3>Endpoint</h2>
@@ -148,13 +145,19 @@ function createAll( topics, topicPrefix = 'item') {
                 </tr>
             </tbody>
         </table>
+    </div>
+        <div class="grid-inner-2">
         <h4>Sample request</h4>
         <pre style="font-size:0.9em;"><code class="language-clike">curl -X GET "https://debuggerduck.api.com/users/{user_id}" 
 -H "Authorization: Bearer {your access token}"</code></pre>
-   
+        </div>
+    </div>
+    
+    <div class="minicontainer">
+        
+        <div class="grid-inner-1">
         <h3>Response parameters</h3>
         <p>See the <a href="response-codes.htm">Response codes</a> and the <a href="#sample_uj">sample User object</a> below.</p>
-       
         <h3>User object</h3>
         <table style="margin-left: 0; margin-right: auto; width: 80%;" >
             <col  />
@@ -220,7 +223,7 @@ function createAll( topics, topicPrefix = 'item') {
                 </tr>
             </tbody>
         </table>
-  
+    </div><div class="grid-inner-2">
         <h3><a name="sample_uj"></a>Sample User object</h3>
         <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
 {
@@ -235,7 +238,10 @@ function createAll( topics, topicPrefix = 'item') {
 }
 </code></pre>
         </p>
-    
+    </div>
+    </div>
+    <div class="minicontainer">
+        <div class="grid-inner-1">
         <h2 id="msg">Send a message</h2>
         <p>This endpoint allows you to send messages to a DebuggerDuck.</p>
         <h3>Endpoint</h3>
@@ -285,6 +291,8 @@ function createAll( topics, topicPrefix = 'item') {
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="grid-inner-2">
         <h4>Sample request</h4>
         <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -292,240 +300,17 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' "https://debuggerduck.api.com/messages?access_token={your access token}"
 </code></pre>
         </p>
+    </div>
+    <div class="minicontainer">
+    <div class="grid-inner-1">
         <h3>Response parameters</h3>
         <p><a href="response-codes.htm" class="BracketLink">See the Response codes<span class="autonumber"><span>&#160;&gt;</span></span></a>
         </p>
-
-        <h2 id="reply">Get a reply from a DebuggerDuck</h2>
-        <p>This endpoint allows you to retrieve replies from a DebuggerDuck by their IDs.</p>
-        <h3>Endpoint</h3>
-        <p><code class="language-clike">GET https://debuggerduck.api.com/messages/{user_id}/received/{id}</code>
-        </p>
-        <h3>Request parameters</h3>
-        <h4>Header fields</h4>
-        <table  style="margin-left: 0; margin-right: auto; width: 80%;" >
-            <col  />
-            <col  />
-            <thead>
-                <tr >
-                    <th >
-                        <p>Header field</p>
-                    </th>
-                    <th >
-                        <p>Value description</p>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td >
-                        <p>Authorization</p>
-                    </td>
-                    <td >
-                        <p>A valid access token. Required.</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4>Path parameters</h4>
-        <table style="margin-left: 0; margin-right: auto; width: 80%;" >
-            <col  />
-            <col  />
-            <thead>
-                <tr >
-                    <th >
-                        <p>Path parameter</p>
-                    </th>
-                    <th >
-                        <p>Value description</p>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td >
-                        <p>user_id</p>
-                    </td>
-                    <td >
-                        <p>The user's user ID. Required.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p>id</p>
-                    </td>
-                    <td >
-                        <p>The ID of the message. Required.</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4>Sample request</h4><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">curl -X GET "https://debuggerduck.api.com/messages/{user_id}/received{id}" 
--H "Authorization: Bearer {your access token}"</code></pre>
-        <h3>Response parameters</h3>
-        <p>See the <a href="response-codes.htm">Response codes</a> and the sample Reply object below.</p>
-        <h3>Response object</h3>
-        <table style="width: 80%; margin-left: 0; margin-right: auto;" >
-            <col  />
-            <col  />
-            <col  />
-            <thead>
-                <tr >
-                    <th >
-                        <p>Key</p>
-                    </th>
-                    <th >
-                        <p>Value type</p>
-                    </th>
-                    <th >
-                        <p>Value description</p>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td >
-                        <p>date</p>
-                    </td>
-                    <td >
-                        <p>long</p>
-                    </td>
-                    <td >
-                        <p>The message creation timestamp, used to order the incoming replies.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p>blinked</p>
-                    </td>
-                    <td >
-                        <p>boolean</p>
-                    </td>
-                    <td >
-                        <p>Information about the DebuggerDuck's reaction to a message.</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4>Sample Response object</h4>
-        <p><pre style="font-size:0.9em;" xml:space="preserve"><code class="language-clike">
-{
-"date" : "1472799302",
-"blinked" : true
-}
-</code></pre>
-        </p>
-
-        
-        <h2 id="codes">Response codes and statuses</h2>
-        <h3>The HTTP Status Codes used by the DuckAPI</h3>
-        <p>&#160;</p>
-        <table>
-            <col  />
-            <col  />
-            <thead>
-                <tr >
-                    <th >
-                        <p>HTTP status code</p>
-                    </th>
-                    <th >
-                        <p>Description</p>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td >
-                        <p><strong>200 OK</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The request was successfully completed.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>201 Created</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>A new resource was created.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>400 Bad request</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The request syntax was invalid</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>401 Unauthorized</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The request did not include an authentication token or the authentication token was expired.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>403 Forbidden</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The client did not have permission to access the requested resource.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><span class="ui">404 Not found</span>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The requested resource was not found.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><span class="ui">405 Method not allowed</span>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The request method is known by the server but it was disabled and cannot be used.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>409 Conflict</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>This response is sent when a request conflicts with the current state of the server.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>500 Internal server error</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The request was not completed due to an internal error on the server side.</p>
-                    </td>
-                </tr>
-                <tr >
-                    <td >
-                        <p><strong>503 Service unavailable</strong>
-                        </p>
-                    </td>
-                    <td >
-                        <p>The server was unavailable.</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    </div>
+        </div>
+    </div>
+    </div> 
+</div>
     
 
     </body>

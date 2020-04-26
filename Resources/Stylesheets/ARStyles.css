@@ -1,11 +1,74 @@
+.mainh {
+	padding-left: 10px;
+	color: rgb(16, 219, 33);
+}
 
+
+/*grid*/
+.container {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	
+}
+
+
+.grid-item-1 {
+	grid-column: 1;
+}
+
+.grid-item-2 {
+	grid-column: 2/4;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+.minicontainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	
+}
+.grid-inner-1 {
+	padding-left: 10px;
+}
+.grid-inner-2 {
+	padding-left: 5px;
+}
+
+/*grid for mobile*/
+
+@media only screen and (max-width: 992px) {
+	body {
+	  background-color: lightblue;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.minicontainer {
+		grid-template-columns: 1fr;
+	}
+
+	#menuContainer{
+	overflow-y: scroll;
+    position: fixed;
+    width: 200px;
+    height: 46px;
+	background: wheat;
+	}
+}
+	
+  }
+
+/*menu*/
 #menuContainer {
 	overflow-y: scroll;
-}
+	}
 
 .no-bullets {
 	list-style-type: none;
 	color: rgb(97, 97, 97);
+	padding-left:5px;
 }
 
 li.hovered:hover {
@@ -28,14 +91,19 @@ li.hovered:hover {
 
     content: "\f078";
     font-family:FontAwesome;
-    float: right;
+	float: right;
+	font-size: 0.8em;
+	margin-right: 5px;
 }
 
 .chevron-up::after {
 
     content: "\f077";
     font-family:FontAwesome;
-    float: right;
+	float: right;
+	font-size: 0.8em;
+	margin-right: 5px;
+
 }
 
 
